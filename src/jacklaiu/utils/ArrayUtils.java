@@ -1,0 +1,22 @@
+package jacklaiu.utils;
+
+public class ArrayUtils {
+	
+	public static void exchangeElem(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		int[] arr = new int[]{0,1,2};
+		ArrayUtils.exchangeElem(arr, 0, 2);
+		for(int num: arr) {
+			System.out.println(num);
+		}
+	}
+
+}
