@@ -8,9 +8,6 @@ public class ArrayUtils {
 		arr[j] = temp;
 	}
 	
-	
-	
-	
 	public static void main(String[] args) {
 		int[] arr = new int[]{0,1,2};
 		ArrayUtils.exchangeElem(arr, 0, 2);
