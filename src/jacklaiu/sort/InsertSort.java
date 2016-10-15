@@ -12,7 +12,7 @@ public class InsertSort {
 			int position = i;
 			for (int j = i - 1; j >= 0; j--) {
 				if (array[j] > currentValue) {
-					array[j + 1] = array[j];
+					array[j + 1] = array[j];//Right Move
 					position -= 1;
 				} else {
 					break;
@@ -23,7 +23,7 @@ public class InsertSort {
 	}
 
 	public static void main(String[] args) {
-		int[] array = { 3, -1, 0, -8, 2, 1 };
+		int[] array = { 5,4,3,2,1,0 };
 		ArrayUtils.printArray(array);
 		insertSort(array);
 		ArrayUtils.printArray(array);
