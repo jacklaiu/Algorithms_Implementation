@@ -14,6 +14,7 @@ public class ArrayUtils {
 		for(int num: arr) {
 			System.out.println(num);
 		}
+		System.out.println("hello");
 	}
 	public static void printArray(int[] array) {  
         System.out.print("{");  

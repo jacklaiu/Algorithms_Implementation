@@ -8,6 +8,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 	public BinarySearchST(int capacity) {
 		keys = (Key[]) new Comparable[capacity];
 		vals = (Value[]) new Object[capacity];
+		
 	}
 	public int size() {
 		return N;
@@ -32,9 +33,11 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 			vals[j] = vals[j-1];
 			keys[i] = key;
 			vals[i] = val;
-			
 		}
 	}
-	
+	private boolean isEmpty() {
+		if(keys.length == 0) return false;
+		else return true;
+	}
 	
 }
