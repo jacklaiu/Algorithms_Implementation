@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import jacklaiu.utils.StdOut;
+
 /**
  * 顺序查找（基于无序链表）
  * @author jacklaiu
@@ -38,7 +40,7 @@ public class SequentialSearchST<Key, Value> {
 		for(Node x = first; x != null; x = x.next) {
 			if(key.equals(x.key)) {
 				return true;//命中
-			}
+			} 
 		}
 		return false;
 	}
@@ -58,6 +60,11 @@ public class SequentialSearchST<Key, Value> {
 			}
 		}
 		first = new Node(key, val, first);//未命中，新建节点
+	}
+	public static void main(String[] args) {
+		SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
+		st.put("jack", 666);
+		StdOut.println(st.get("jack"));
 	}
 
 }
