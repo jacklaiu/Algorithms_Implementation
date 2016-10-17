@@ -64,7 +64,6 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 		BinarySearchST<String, Integer> st = new BinarySearchST<String, Integer>(10);
 		st.put("jack", 666);
 		StdOut.println(st.get("jack"));
-		System.out.println("Hello");
 	}
 	
 }
