@@ -66,10 +66,58 @@ public class BST<Key extends Comparable<Key>, Value> {
 	private Node put(Node x, Key key, Value val) {
 		if(x == null) return new Node(key, val, 1);
 		int cmp = key.compareTo(x.key);
-		if(cmp < 0) x.left = put(x.left, key, val);
+		if(cmp < 0)      x.left = put(x.left, key, val);
 		else if(cmp > 0) x.right = put(x.right, key,val);
-		else x.val = val;
+		else             x.val = val;
 		x.N = size(x.left) + size(x.right) + 1;
 		return x;
+	}
+	private Key min() {
+		return min(root).key;
+	}
+	private Node min(Node x) {
+		if(x.left == null) return x;
+		else return min(x.left);
+	}
+	private Key max() {
+		return max(root).key;
+	}
+	private Node max(Node x) {
+		if(x.right != null) return max(x.right);
+		else return x;
+	}
+	private Key floor(Key key) {
+		return floor(root, key).key;
+	}
+	private Node floor(Node x, Key key) {
+		if(x == null) return null;
+		int cmp = key.compareTo(x.key);
+		if(cmp == 0) return x;
+		else if(cmp < 0) return floor(x.left, key);
+		Node t = floor(x.right, key);
+		if(t != null) return t;
+		else 		  return x;
+	}
+	private Key celling(Key key) {
+		return celling(root, key).key;
+	}
+	private Node celling(Node x, Key key) {
+		if(x == null) return null;
+		int cmp = key.compareTo(x.key);
+		if(cmp == 0) return x;
+		else if(cmp > 0) return celling(x.right, key);
+		Node t = celling(x.left, key);
+		if(t != null) return t;
+		else          return x;
+	}
+	private int rank(Key key) {
+		return rank(root, key);
+	}
+	private int rank(Node x, Key key) {
+		if(x == null) return 0;
+		int cmp = key.compareTo(x.key);
+		if(cmp < 0) return rank(x.left, key);
+		else if(cmp > 0) return 1 + size(x.left) + rank(x.right, key);
+		else return size(x.left);
 	}
 }
