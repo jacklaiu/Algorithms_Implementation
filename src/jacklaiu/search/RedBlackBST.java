@@ -47,6 +47,8 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 		else if(cmp > 0) h.right = put(h.right, key, val);
 		else h.val = val;//如果找到直接替换值，还是红黑树，操作和二叉树插入一样
 		
+		//调整，来符合红黑树的定义
+		//判断顺序一定是下面这样，先判断是否需要左旋转->右旋转->flipColors
 		if(isRed(h.right) && !isRed(h.left)) h = rotateLeft(h);
 		if(isRed(h.left) && isRed(h.left.left)) h = rotateRight(h);
 		if(isRed(h.left) && isRed(h.right)) flipColors(h);
@@ -56,7 +58,7 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 	}
 	private Node rotateLeft(Node h) {
 		Node x = h.right;
-		h.right = x.left;
+		h.right = x.left; 
 		x.left = h;
 		x.color = h.color;
 		h.color = RED;
@@ -78,5 +80,9 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 		h.color = RED;
 		h.left.color = BLACK;
 		h.right.color = BLACK;
+	}
+	
+	private void delete(Key key) {
+		
 	}
 }
