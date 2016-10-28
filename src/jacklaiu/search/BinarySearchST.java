@@ -59,10 +59,4 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 		if(keys.length == 0) return true;
 		else return false;
 	}
-	public static void main(String[] args) {
-		BinarySearchST<String, String> st = new BinarySearchST<String, String>(10);
-		st.put("jack", "jackv");
-		st.put("angel", "");
-		StdOut.println(st.get("jack"));
-	}
 }
